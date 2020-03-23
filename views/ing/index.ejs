@@ -1,0 +1,23 @@
+<h1>Ingredient Page</h1>
+
+<nav>
+    <a href="/food/create">Food Page</a> - 
+    <a href="/food/create">Create Food</a> -
+    <a href="/ingredient">Ingredient Page</a> -
+    <a href="/ingredient/create">Create Ingredient</a>
+</nav>
+
+<div>
+    <% ing.forEach( ing => { %>
+        <div>
+            <p>Ingredient Name: <%= ing.name %></p>
+            <p>Quantity :<%= ing.quantity %></p>
+            <img src="<%= ing.ingImage %>" height="200px" width="180px" alt="ingredient image">
+        </div>
+        <div>
+            <form action="/ingredient/<%= ing._id %>/delete?_method=DELETE" method="POST">
+                <button type="submit">Delete Ingredient</button>
+            </form>
+        </div>
+    <% }) %>
+</div>

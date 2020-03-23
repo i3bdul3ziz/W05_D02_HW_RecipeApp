@@ -1,0 +1,26 @@
+<h1>Create New Food</h1>
+
+<a href="/food">Food</a>
+<form action="/food/create" method="POST">
+    <div>
+        <label for="">Food Name:</label>
+        <input type="text" name="name">
+    </div>
+    <div>
+        <label for="">Time to prepare:</label>
+        <input type="text" name="timeToPrepare">
+    </div>
+    <div>
+        <label for="">Food Image:</label>
+        <input type="text" name="image">
+    </div>
+    <div>
+        <label for=""> Ingredients :</label>
+        <select name="ingredient[]" multiple="multiple">
+            <% ing.forEach(ing => { %>
+                <option value="<%= ing._id %>"><%= ing.name %></option>
+            <% }) %>
+        </select>
+    </div>
+    <button type="submit">Submit</button>
+</form>

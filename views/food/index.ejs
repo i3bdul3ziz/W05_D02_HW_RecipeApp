@@ -1,0 +1,25 @@
+<h1>Food Page</h1>
+<nav>
+    <a href="/food/create">Food Page</a> - 
+    <a href="/food/create">Create Food</a> -
+    <a href="/ingredient">Ingredient Page</a> -
+    <a href="/ingredient/create">Create Ingredient</a>
+</nav>
+
+<div>
+    <% food.forEach( food => { %>
+        <div>
+            <p>Food Name: <%= food.name %></p>
+            <p>Time to prepare :<%= food.timeToPrepare %></p>
+            <% food.ingredient.forEach(ing => { %>
+                <li><%= ing.name %></p>
+            <% }) %>
+            <img src="<%= food.image %>" height="200px" width="180px" alt="food image">
+        </div>
+        <div>
+            <form action="/food/<%= food._id %>/delete?_method=DELETE" method="POST">
+                <button type="submit">Delete Food</button>
+            </form>
+        </div>
+    <% }) %>
+</div>
